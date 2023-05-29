@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { CssBaseline } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 import { GiBurningBook } from "react-icons/gi";
@@ -45,6 +46,7 @@ function NavBar() {
 					</Link>
 				))}
 			</Navigation>
+			<CssBaseline />
 		</NavigationBar>
 	);
 }
