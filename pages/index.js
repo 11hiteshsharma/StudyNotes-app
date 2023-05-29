@@ -1,4 +1,5 @@
 import Head from "next/head";
+import HomePage from "@/components/Home";
 
 export default function Home() {
 	return (
@@ -11,7 +12,7 @@ export default function Home() {
 			</Head>
 
 			<main>
-				<h1> hello hitesh bro</h1>
+				<HomePage />
 			</main>
 		</>
 	);
