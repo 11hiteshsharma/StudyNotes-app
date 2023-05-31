@@ -10,7 +10,7 @@ const Container = styled.div`
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 300px; /* Adjust the maximum width as desired */
+  max-width: 320px; /* Adjust the maximum width as desired */
   margin: 0 auto; /* Center the card horizontally */
   border-radius: 1rem; /* Add border radius */
   overflow: hidden; /* Clip the content within the rounded corners */
