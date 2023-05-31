@@ -111,6 +111,7 @@ const SearchBar = styled.div`
     border: none;
     outline: none;
     flex-grow: 1;
+    height: 100%;
     background: transparent;
     color: #070707;
     ::placeholder {
