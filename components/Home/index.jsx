@@ -50,8 +50,6 @@ const BlogSection = styled.h2`
 `;
 
 const BlogCardsSection = styled.div`
-  display: flex;
-  gap: 4%;
   height: 450px;
   width: 100%;
 `;

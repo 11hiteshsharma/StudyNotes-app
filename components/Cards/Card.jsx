@@ -10,7 +10,7 @@ const Container = styled.div`
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 320px; /* Adjust the maximum width as desired */
+  width: 100%;
   margin: 0 auto; /* Center the card horizontally */
   border-radius: 1rem; /* Add border radius */
   overflow: hidden; /* Clip the content within the rounded corners */
@@ -25,11 +25,12 @@ const CardContainer = styled.div`
 const CardHeader = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 15px;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 150px;
+  height: 175px;
   display: block;
   object-fit: cover;
 `;
@@ -39,6 +40,7 @@ const CardBody = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   margin: 0px 15px;
+  padding-bottom: 25px;
 
   & p {
     font-size: 12px;
@@ -50,13 +52,14 @@ const CardBody = styled.div`
     -webkit-line-clamp: 3;
     /* fallback for Firefox */
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
-  & a {
+  & a:hover {
+    opacity: 0.7;
+  }
+  & span {
     color: #008cff;
-    font-size: 0.9rem;
-    text-decoration: underline;
   }
 `;
 
@@ -65,13 +68,12 @@ const Tag = styled.span`
   border-radius: 1em;
   font-size: 0.75rem;
   padding: 4px;
-  margin-top: 10px;
 `;
 
 const BlueTag = styled(Tag)`
-  background: #56ccf2;
   background: linear-gradient(to bottom, #2f80ed, #56ccf2);
-  color: #fafafa;
+  color: #fafafa !important;
+  padding: 5px 10px;
 `;
 
 const BrownTag = styled(Tag)`
@@ -88,12 +90,8 @@ const RedTag = styled(Tag)`
 
 const CardFooter = styled.div`
   display: flex;
-  margin: 15% 0 5% 4%;
-`;
-
-const User = styled.div`
-  display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const UserImage = styled.img`
@@ -112,31 +110,29 @@ const Card = () => {
       <CardContainer>
         <CardHeader>
           <Image
-            src="https://source.unsplash.com/600x400/?computer"
+            src="https://source.unsplash.com/600x400/?space"
             alt="card__image"
           />
         </CardHeader>
 
         <CardBody>
-          <BlueTag>Technology</BlueTag>
-          <h4>What's new in 2022 Tech</h4>
+          <h4>
+            <Link href="/"> What's new in 2022 Tech</Link>
+          </h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-            perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea
-            atque quidem!
+            <Link href="/">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+              perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea
+              atque quidem!
+            </Link>
           </p>
-          <Link href="/">Read More</Link>
+          <CardFooter>
+            <Link href="/">
+              <span> Read More</span>
+            </Link>
+            <BlueTag>Technology</BlueTag>
+          </CardFooter>
         </CardBody>
-
-        <CardFooter>
-          <User>
-            <UserImage src="https://i.pravatar.cc/40?img=1" alt="user__image" />
-            <UserInfo>
-              <h5>Jane Doe</h5>
-              <small>2h ago</small>
-            </UserInfo>
-          </User>
-        </CardFooter>
       </CardContainer>
     </Container>
   );
