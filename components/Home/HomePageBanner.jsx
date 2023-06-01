@@ -30,15 +30,14 @@ const HomePageBanner = () => {
 				</BannerSection>
 
 				<BannerImageContainer>
-					<BannerImage src="/banner.webp" alt="Home Banner" fill />
-
 					<SearchBar>
-						<BiSearchAlt size={25} className="search CursorPointer" />
+						<BiSearchAlt size={25} className="search" />
 						<input type="text" placeholder="Search" />
 						<Button variant="contained" color="primary">
 							Search
 						</Button>
 					</SearchBar>
+					<BannerImage src="/banner.webp" alt="Home Banner" fill />
 				</BannerImageContainer>
 			</Container>
 		</>
@@ -56,7 +55,7 @@ const BannerSection = styled.div`
 	width: 60vw;
 	text-align: center;
 
-	@media (max-width: 768px) {
+	@media (max-width: 960px) {
 		width: 90vw;
 	}
 `;
@@ -72,6 +71,10 @@ const BannerTitle = styled.div`
 	font-size: 3rem;
 	font-weight: 600;
 	margin-block: 2rem;
+
+	@media (max-width: 768px) {
+		margin-top: 0 !important;
+	}
 `;
 
 const BannerDescription = styled.div`
@@ -86,10 +89,18 @@ const BannerImageContainer = styled.div`
 	margin-inline: auto;
 	position: relative !important;
 	height: 450px;
+
+	@media (max-width: 768px) {
+		width: 90vw;
+		height: 300px;
+	}
 `;
 
 const BannerImage = styled(Image)`
 	object-fit: cover;
+	@media (max-width: 768px) {
+		margin-top: 2rem;
+	}
 `;
 
 const SearchBar = styled.div`
@@ -99,13 +110,14 @@ const SearchBar = styled.div`
 	transform: translate(-50%, -50%);
 	display: flex;
 	align-items: center;
-	width: 60%;
+	width: 50vw;
 	height: 50px;
 	gap: 0.5rem;
 	padding-inline: 0.5rem;
 	background: #ffffff;
 	border-radius: 10px;
 	box-shadow: 2px 2px 13px 2px #afafaf;
+	z-index: 12;
 	& > input {
 		display: flex;
 		border: none;
@@ -124,54 +136,9 @@ const SearchBar = styled.div`
 		background: transparent;
 		color: #838383;
 	}
-	& > .CursorPointer {
-		cursor: pointer;
+
+	@media (max-width: 768px) {
+		top: -9%;
+		width: 60vw;
 	}
 `;
-
-// const CarouselContainer = styled.div`
-// 	width: 100vw;
-// 	height: 70vh;
-// 	position: relative;
-// `;
-
-// const CarouselImage = styled(Image)`
-// 	width: 100vw !important;
-// 	height: 100% !important;
-// 	object-fit: cover;
-// 	opacity: 0.4;
-// `;
-
-// const SearchBar = styled.div`
-// 	position: absolute;
-// 	top: 40%;
-// 	left: 50%;
-// 	transform: translate(-50%, -50%);
-// 	display: flex;
-// 	align-items: center;
-// 	width: 50%;
-// 	height: 50px;
-// 	gap: 0.5rem;
-// 	padding: 0.5rem;
-// 	background: #f0f3f4;
-// 	border-radius: 8px;
-// 	& > input {
-// 		display: flex;
-// 		border: none;
-// 		outline: none;
-// 		flex-grow: 1;
-// 		height: 100%;
-// 		background: transparent;
-// 		color: #070707;
-// 		::placeholder {
-// 			color: #070707;
-// 		}
-// 	}
-// 	& > .search {
-// 		background: transparent;
-// 		color: #070707;
-// 	}
-// 	& > .CursorPointer {
-// 		cursor: pointer;
-// 	}
-// `;

@@ -5,7 +5,9 @@ import SearchBar from "@/components/Blogs/SearchBar";
 import styled from "@emotion/styled";
 import Wrapper from "@/styles/Wrapper";
 import CardsGrid from "@/components/Blogs/CardsGrid";
+import { BlogData } from "@/database/blogcard";
 const Blogs = () => {
+  const data = BlogData;
   return (
     <div>
       <Head>
@@ -21,7 +23,7 @@ const Blogs = () => {
           <SearchBar />
         </SearchBarContainer>
         <Heading>Popular Blogs</Heading>
-        <CardsGrid />
+        <CardsGrid data={data} />
       </Wrapper>
     </div>
   );
@@ -36,9 +38,9 @@ const SearchBarContainer = styled.div`
 const Heading = styled.h2`
   font-style: normal;
   font-weight: 700;
-  font-size: 34px;
+  font-size: 3em;
   line-height: 130%;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   color: #151411;
-  margin-bottom: 50px;
+  margin: 0 0 50px 7%;
 `;
