@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import Head from "next/head";
 import NavBar from "@/components/Navbar/navbar";
 import Footer from "@/components/Footer/footer";
 import { Raleway } from "next/font/google";
