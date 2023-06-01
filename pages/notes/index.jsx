@@ -1,7 +1,7 @@
 import React from "react";
 
 const Notes = () => {
-  return <div>Notes</div>;
+  return <div></div>;
 };
 
 export default Notes;

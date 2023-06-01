@@ -1,72 +1,71 @@
 import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Card from "../Cards/Card";
 import styled from "@emotion/styled";
 
 const BlogsCarousel = () => {
+  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12, 13];
+  const settings = {
+    dots: true,
+    autoplay: true,
+    infinite: true,
+    speed: 1000,
+    autoplaySpeed: 2000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <SliderContainer>
-      <Carousel
-        arrows
-        autoPlay={true}
-        autoPlaySpeed={3000}
-        responsive={{
-          superLargeDesktop: {
-            breakpoint: { max: 4000, min: 3000 },
-            items: 5,
-          },
-          desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 3,
-          },
-          tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-          },
-          mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-          },
-        }}
-      >
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-        <div>
-          <Card />
-        </div>
-      </Carousel>
+      <Slider {...settings}>
+        {array?.map((e, index) => {
+          return (
+            <CardContainer key={index}>
+              <Card />
+            </CardContainer>
+          );
+        })}
+      </Slider>
     </SliderContainer>
   );
 };
 
 export default BlogsCarousel;
 
-const SliderContainer = styled.div`
-  width: 100%;
+const SliderContainer = styled.div``;
+
+const CardContainer = styled.div`
+  display: flex;
+  padding: 0 20px;
 `;
+{
+  /**  */
+}
