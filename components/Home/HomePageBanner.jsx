@@ -3,125 +3,175 @@ import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { BiSearchAlt } from "react-icons/bi";
+import { Button } from "@mui/material";
 
-const BannerImages = [
-  {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1373&q=80",
-    alt: "Banner 1",
-  },
-  {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1766&q=80",
-    alt: "Banner 2",
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1558021211-6d1403321394?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=852&q=80",
-    alt: "Banner 3",
-  },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1560785496-3c9d27877182?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1548&q=80",
-    alt: "Banner 4",
-  },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
-    alt: "Banner 5",
-  },
-];
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-};
 const HomePageBanner = () => {
-  return (
-    <Container>
-      <Carousel
-        swipeable={true}
-        draggable={false}
-        showDots={false}
-        arrows={false}
-        responsive={responsive}
-        ssr={true} // means to render carousel on server-side.
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={3000}
-        keyBoardControl={true}
-        customTransition="all .5"
-        transitionDuration={500}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
-      >
-        {BannerImages.map((image) => (
-          <CarouselContainer key={image.id}>
-            <CarouselImage src={image.src} alt={image.alt} fill />
-          </CarouselContainer>
-        ))}
-      </Carousel>
-      <SearchBar>
-        <BiSearchAlt size={22} className="search CursorPointer" />
-        <input type="text" placeholder="Search" />
-      </SearchBar>
-    </Container>
-  );
+	return (
+		<>
+			<Container>
+				<BannerSection>
+					<BannerHeader>
+						<BannerTitle>
+							<p>
+								Your Study Companion: Notes, Insights, and Beyond <sup>✨</sup>{" "}
+							</p>
+						</BannerTitle>
+						<BannerDescription>
+							<p>
+								Experience a study and notes platform that goes beyond
+								traditional learning. Seamlessly blending convenience and
+								quality, our website provides a rich tapestry of study
+								materials, insightful notes, and inspiring blog content. Immerse
+								yourself in a dynamic learning ecosystem designed to empower and
+								motivate you
+							</p>
+						</BannerDescription>
+					</BannerHeader>
+				</BannerSection>
+
+				<BannerImageContainer>
+					<BannerImage src="/banner.webp" alt="Home Banner" fill />
+
+					<SearchBar>
+						<BiSearchAlt size={25} className="search CursorPointer" />
+						<input type="text" placeholder="Search" />
+						<Button variant="contained" color="primary">
+							Search
+						</Button>
+					</SearchBar>
+				</BannerImageContainer>
+			</Container>
+		</>
+	);
 };
 
 export default HomePageBanner;
 
-const Container = styled.div`
-  /* width: 100vw;
-	height: 500px; */
-  margin-bottom: 3rem;
-`;
-const CarouselContainer = styled.div`
-  width: 100vw;
-  height: 70vh;
-  position: relative;
+const Container = styled.header`
+	margin-block: 10vh;
 `;
 
-const CarouselImage = styled(Image)`
-  width: 100vw !important;
-  height: 100% !important;
-  object-fit: cover;
+const BannerSection = styled.div`
+	margin-inline: auto;
+	width: 60vw;
+	text-align: center;
+
+	@media (max-width: 768px) {
+		width: 90vw;
+	}
+`;
+
+const BannerHeader = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+`;
+
+const BannerTitle = styled.div`
+	font-size: 3rem;
+	font-weight: 600;
+	margin-block: 2rem;
+`;
+
+const BannerDescription = styled.div`
+	line-height: 1.8;
+	font-size: 1rem;
+	color: #716b6b;
+	margin-bottom: 5rem;
+`;
+
+const BannerImageContainer = styled.div`
+	width: 80vw;
+	margin-inline: auto;
+	position: relative !important;
+	height: 450px;
+`;
+
+const BannerImage = styled(Image)`
+	object-fit: cover;
 `;
 
 const SearchBar = styled.div`
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  width: 50%;
-  height: 50px;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  background: #f0f3f4;
-  border-radius: 8px;
-  & > input {
-    display: flex;
-    border: none;
-    outline: none;
-    flex-grow: 1;
-    height: 100%;
-    background: transparent;
-    color: #070707;
-    ::placeholder {
-      color: #070707;
-    }
-  }
-  & > .search {
-    background: transparent;
-    color: #070707;
-  }
-  & > .CursorPointer {
-    cursor: pointer;
-  }
+	position: absolute;
+	top: -1%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	align-items: center;
+	width: 60%;
+	height: 50px;
+	gap: 0.5rem;
+	padding-inline: 0.5rem;
+	background: #ffffff;
+	border-radius: 10px;
+	box-shadow: 2px 2px 13px 2px #afafaf;
+	& > input {
+		display: flex;
+		border: none;
+		outline: none;
+		flex-grow: 1;
+		font-size: 1rem;
+		height: 100%;
+		background: transparent;
+		color: #070707;
+		::placeholder {
+			color: #838383;
+			font-size: 1rem;
+		}
+	}
+	& > .search {
+		background: transparent;
+		color: #838383;
+	}
+	& > .CursorPointer {
+		cursor: pointer;
+	}
 `;
+
+// const CarouselContainer = styled.div`
+// 	width: 100vw;
+// 	height: 70vh;
+// 	position: relative;
+// `;
+
+// const CarouselImage = styled(Image)`
+// 	width: 100vw !important;
+// 	height: 100% !important;
+// 	object-fit: cover;
+// 	opacity: 0.4;
+// `;
+
+// const SearchBar = styled.div`
+// 	position: absolute;
+// 	top: 40%;
+// 	left: 50%;
+// 	transform: translate(-50%, -50%);
+// 	display: flex;
+// 	align-items: center;
+// 	width: 50%;
+// 	height: 50px;
+// 	gap: 0.5rem;
+// 	padding: 0.5rem;
+// 	background: #f0f3f4;
+// 	border-radius: 8px;
+// 	& > input {
+// 		display: flex;
+// 		border: none;
+// 		outline: none;
+// 		flex-grow: 1;
+// 		height: 100%;
+// 		background: transparent;
+// 		color: #070707;
+// 		::placeholder {
+// 			color: #070707;
+// 		}
+// 	}
+// 	& > .search {
+// 		background: transparent;
+// 		color: #070707;
+// 	}
+// 	& > .CursorPointer {
+// 		cursor: pointer;
+// 	}
+// `;
