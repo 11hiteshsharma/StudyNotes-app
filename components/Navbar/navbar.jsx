@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 import React from "react";
-import { GiBurningBook } from "react-icons/gi";
+import { HiMenuAlt3 } from "react-icons/hi";
 import Image from "next/image";
 
 const NavLink = [
@@ -30,22 +30,28 @@ const NavLink = [
 function NavBar() {
 	return (
 		<NavigationBar>
-			<Logo>
-				<StyledLogo>
-					<Image src="/logo.svg" alt="logo" width={50} height={50} />
-				</StyledLogo>
-				<StyledLink href="/">
-					<StyledFontAwesomeIcon>N</StyledFontAwesomeIcon>otio
-				</StyledLink>
-			</Logo>
+			<NavbarContainer>
+				<Logo>
+					<StyledLogo>
+						<Image src="/logo.svg" alt="logo" width={50} height={50} />
+					</StyledLogo>
+					<StyledLink href="/">
+						<StyledFontAwesomeIcon>N</StyledFontAwesomeIcon>otio
+					</StyledLink>
+				</Logo>
 
-			<Navigation>
-				{NavLink.map((link) => (
-					<Link href={link.href} key={link.title}>
-						{link.title}
-					</Link>
-				))}
-			</Navigation>
+				<Navigation>
+					{NavLink.map((link) => (
+						<Link href={link.href} key={link.title}>
+							{link.title}
+						</Link>
+					))}
+				</Navigation>
+
+				<NavMenu>
+					<HiMenuAlt3 size={30} />
+				</NavMenu>
+			</NavbarContainer>
 		</NavigationBar>
 	);
 }
@@ -53,11 +59,24 @@ function NavBar() {
 export default NavBar;
 
 const NavigationBar = styled.nav`
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	/* backdrop-filter: blur(11px); */
+	background-color: #fff;
+`;
+
+const NavbarContainer = styled.div`
 	margin-inline: 4rem;
-	margin-block: 20px;
+	margin-top: 1rem;
+	padding-block: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	@media (max-width: 830px) {
+		margin-inline: 1rem;
+	}
 `;
 
 const Logo = styled.div`
@@ -85,7 +104,12 @@ const Navigation = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 2rem;
-	font-size: 1rem;
+	font-size: 1.2rem;
+	font-weight: 500;
+
+	@media (max-width: 830px) {
+		display: none;
+	}
 
 	/* The pseudo class ":nth-last-child" is potentially unsafe when doing server-side rendering. Try changing it to ":nth-last-of-type". */
 	& > a:nth-last-child(2) {
@@ -113,5 +137,22 @@ const Navigation = styled.div`
 			background-color: #009df9;
 			color: #fff;
 		}
+	}
+`;
+
+const NavMenu = styled.div`
+	display: none;
+	cursor: pointer;
+
+	border-radius: 50%;
+	padding: 10px;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		background-color: #f7f2f2;
+	}
+
+	@media (max-width: 830px) {
+		display: block;
 	}
 `;
