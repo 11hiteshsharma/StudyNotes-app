@@ -5,8 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Card from "../Cards/Card";
 import styled from "@emotion/styled";
 
-const BlogsCarousel = () => {
-  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12, 13];
+const BlogsCarousel = ({ data }) => {
   const settings = {
     dots: true,
     autoplay: true,
@@ -46,13 +45,11 @@ const BlogsCarousel = () => {
   return (
     <SliderContainer>
       <Slider {...settings}>
-        {array?.map((e, index) => {
-          return (
-            <CardContainer key={index}>
-              <Card />
-            </CardContainer>
-          );
-        })}
+        {data.map((data) => (
+          <CardContainer key={data.id}>
+            <Card data={data} />
+          </CardContainer>
+        ))}
       </Slider>
     </SliderContainer>
   );
@@ -66,6 +63,3 @@ const CardContainer = styled.div`
   display: flex;
   padding: 0 20px;
 `;
-{
-  /**  */
-}
