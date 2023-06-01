@@ -90,7 +90,6 @@ const CarouselImage = styled(Image)`
   width: 100vw !important;
   height: 100% !important;
   object-fit: cover;
-  opacity: 0.4;
 `;
 
 const SearchBar = styled.div`
