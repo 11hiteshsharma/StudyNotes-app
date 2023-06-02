@@ -45,7 +45,7 @@ const BlogsCarousel = ({ data }) => {
   return (
     <SliderContainer>
       <Slider {...settings}>
-        {data.map((data) => (
+        {data?.map((data) => (
           <CardContainer key={data.id}>
             <Card data={data} />
           </CardContainer>
