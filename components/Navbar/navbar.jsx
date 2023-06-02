@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
-import React from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import Image from "next/image";
 
@@ -28,8 +28,22 @@ const NavLink = [
 ];
 
 function NavBar() {
+	const [shadow, setShadow] = useState(false);
+	console.log(shadow);
+
+	useEffect(() => {
+		const handleShadow = () => {
+			setShadow(window.scrollY >= 70);
+		};
+
+		window.addEventListener("scroll", handleShadow);
+
+		return () => {
+			window.removeEventListener("scroll", handleShadow);
+		};
+	}, []);
 	return (
-		<NavigationBar>
+		<NavigationBar shadow={shadow}>
 			<NavbarContainer>
 				<Logo>
 					<StyledLogo>
@@ -62,14 +76,15 @@ const NavigationBar = styled.nav`
 	position: sticky;
 	top: 0;
 	z-index: 100;
-	/* backdrop-filter: blur(11px); */
-	background-color: #fff;
+	transition: box-shadow 0.3s ease-in-out;
+
+	background-color: ${({ shadow }) => (shadow ? "#fff" : "transparent")};
+	box-shadow: ${({ shadow }) => (shadow ? "2px 2px 13px 2px #E2E2E2" : "none")};
 `;
 
 const NavbarContainer = styled.div`
 	margin-inline: 4rem;
-	margin-top: 1rem;
-	padding-block: 10px;
+	padding-block: 15px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

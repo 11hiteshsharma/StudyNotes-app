@@ -70,7 +70,7 @@ const BannerHeader = styled.div`
 const BannerTitle = styled.div`
 	font-size: 3rem;
 	font-weight: 600;
-	margin-block: 2rem;
+	margin-bottom: 2rem;
 
 	@media (max-width: 768px) {
 		margin-top: 0 !important;
