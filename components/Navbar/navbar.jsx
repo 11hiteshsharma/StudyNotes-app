@@ -4,6 +4,8 @@ import Link from "next/link";
 import { HiMenuAlt3 } from "react-icons/hi";
 import Image from "next/image";
 
+import Sidebar from "./sidebar";
+
 const NavLink = [
 	{
 		title: "Home",
@@ -42,6 +44,8 @@ function NavBar() {
 			window.removeEventListener("scroll", handleShadow);
 		};
 	}, []);
+
+	
 	return (
 		<NavigationBar shadow={shadow}>
 			<NavbarContainer>
@@ -66,6 +70,8 @@ function NavBar() {
 					<HiMenuAlt3 size={30} />
 				</NavMenu>
 			</NavbarContainer>
+
+			<Sidebar/>
 		</NavigationBar>
 	);
 }
