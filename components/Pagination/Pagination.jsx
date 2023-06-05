@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-const Pagination = () => {
-  const [currentPage, setCurrentPage] = useState(1); // Initialize current page as 1
-
+const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber); // Update current page when a new page is selected
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      onPageChange(pageNumber); // Invoke the onPageChange callback with the new page number
+    }
   };
 
   return (
@@ -20,19 +20,18 @@ const Pagination = () => {
         />
       </LeftArrow>
 
-      <PageNumber
-        onClick={() => handlePageChange(1)} // Go to first page
-        active={currentPage === 1} // Apply active styling if it's the current page
-      >
-        1
-      </PageNumber>
-
-      <PageNumber
-        onClick={() => handlePageChange(2)} // Go to second page
-        active={currentPage === 2} // Apply active styling if it's the current page
-      >
-        2
-      </PageNumber>
+      {[...Array(totalPages)].map((_, index) => {
+        const pageNumber = index + 1;
+        return (
+          <PageNumber
+            key={pageNumber}
+            onClick={() => handlePageChange(pageNumber)}
+            active={currentPage === pageNumber} // Apply active styling if it's the current page
+          >
+            {pageNumber}
+          </PageNumber>
+        );
+      })}
 
       <RightArrow>
         <AiOutlineRight
@@ -54,17 +53,18 @@ const MainContainer = styled.div`
   align-items: center;
   padding: 0px;
   gap: 15px;
+  cursor: pointer;
+
   margin-bottom: 80px;
 `;
 
 const LeftArrow = styled.div``;
 const RightArrow = styled.div``;
 const PageNumber = styled.div`
-  cursor: pointer;
   font-weight: 500;
   font-size: 18px;
   line-height: 180%;
-  color: white;
+  color: #000000;
   background: ${(props) => (props.active ? "#518581" : "transparent")};
   padding: 5px 10px;
 `;

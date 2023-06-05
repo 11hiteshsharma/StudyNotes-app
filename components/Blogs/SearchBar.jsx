@@ -19,12 +19,13 @@ export default SearchBar;
 
 const Container = styled.div`
   display: flex;
+  align-items: center;
   gap: 5%;
 `;
 
 const SearchBarContainer = styled.div`
   background: #ffffff;
-  box-shadow: 0px 4px 120px rgba(175, 173, 181, 0.15);
+  box-shadow: 0px 4px 120px rgba(0, 0, 0, 0.15);
   display: flex;
   width: 100%;
   height: 50px;
@@ -82,4 +83,13 @@ const SearchButton = styled.button`
 
 const FilterContainer = styled.div`
   cursor: pointer;
+  border-radius: 50%;
+  padding: 5px 5px 1px 7px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #c5c7c8;
+  }
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;

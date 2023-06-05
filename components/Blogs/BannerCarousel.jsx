@@ -9,28 +9,34 @@ const BannerImages = [
     id: 1,
     src: "https://source.unsplash.com/1920x1080/?space",
     alt: "Banner 1",
+    title: "Space Exploration",
   },
   {
     id: 2,
     src: "https://source.unsplash.com/1920x1080/?aesthatic",
     alt: "Banner 2",
+    title: "Artistic Creations",
   },
   {
     id: 3,
     src: "https://source.unsplash.com/1920x1080/?love",
     alt: "Banner 3",
+    title: "The Power of Love",
   },
   {
     id: 4,
     src: "https://source.unsplash.com/1920x1080/?nature",
     alt: "Banner 4",
+    title: "Embracing Nature",
   },
   {
     id: 5,
     src: "https://source.unsplash.com/1920x1080/?cars",
     alt: "Banner 5",
+    title: "Fast and Furious",
   },
 ];
+
 const BannerCarousel = () => {
   const responsive = {
     desktop: {
@@ -62,12 +68,12 @@ const BannerCarousel = () => {
         {BannerImages.map((image) => (
           <CarouselContainer key={image.id}>
             <CarouselImage src={image?.src} alt={image?.alt} fill />
+            <BlogHeading>
+              <Link href="/">{image.title}</Link>
+            </BlogHeading>
           </CarouselContainer>
         ))}
       </Carousel>
-      <BlogHeading>
-        <Link href="/">Can AI Replace Humans ?</Link>
-      </BlogHeading>
     </div>
   );
 };
@@ -88,14 +94,12 @@ const CarouselImage = styled(Image)`
 
 const BlogHeading = styled.div`
   position: absolute;
-  bottom: -5%;
+  bottom: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-style: normal;
   font-weight: 700;
   font-size: 34px;
-  line-height: 130%;
-  /* or 57px */
 
   /* Screen Color */
 
