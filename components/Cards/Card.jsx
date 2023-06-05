@@ -103,8 +103,6 @@ const DateContainer = styled.div`
 `;
 
 const Card = ({ data }) => {
-  console.log(data, "Card Data");
-  const slug = "Single Blog Page";
   return (
     <CardContainer>
       <CardHeader>
@@ -120,14 +118,14 @@ const Card = ({ data }) => {
 
       <CardBody>
         <h4>
-          <Link href={`/blogs/blog/${data?.slug}`}> {data?.title}</Link>
+          <Link href={`/blogs/${data?.slug}`}> {data?.title}</Link>
         </h4>
         <DateContainer>{data?.publishing_data}</DateContainer>
         <p>
-          <Link href={`/blogs/blog/${data?.slug}`}>{data?.description}</Link>
+          <Link href={`/blogs/${data?.slug}`}>{data?.description}</Link>
         </p>
         <CardFooter>
-          <Link href={`/blogs/blog/${data?.slug}`}>
+          <Link href={`/blogs/${data?.slug}`}>
             <span> Read More</span>
           </Link>
           <BlueTag>{data?.category}</BlueTag>
