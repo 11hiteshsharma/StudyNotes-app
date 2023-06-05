@@ -6,8 +6,9 @@ import Card from "../Cards/Card";
 import styled from "@emotion/styled";
 
 const BlogsCarousel = ({ data }) => {
+  console.log(data, "hello");
   const settings = {
-    dots: true,
+    dots: false,
     autoplay: true,
     infinite: true,
     speed: 1000,
