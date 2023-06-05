@@ -1,3 +1,4 @@
+import SingleBlogPage from "@/components/SingleBlogPage";
 import { useRouter } from "next/router";
 
 const BlogPage = () => {
@@ -8,9 +9,7 @@ const BlogPage = () => {
 
   return (
     <div>
-      <h1>Blog Page</h1>
-      <p>Slug: {slug}</p>
-      {/* Display the blog content or perform other actions */}
+      <SingleBlogPage />
     </div>
   );
 };
