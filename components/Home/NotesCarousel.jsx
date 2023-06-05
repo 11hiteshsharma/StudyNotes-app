@@ -5,10 +5,10 @@ import "react-multi-carousel/lib/styles.css";
 import NotesCard from "../Cards/NotesCard";
 import styled from "@emotion/styled";
 
-const NotesCarousel = ({data}) => {
+const NotesCarousel = ({ data }) => {
   const settings = {
-    dots: true,
-    autoplay: true,
+    dots: false,
+    autoplay: false,
     infinite: true,
     speed: 1000,
     autoplaySpeed: 2000,
