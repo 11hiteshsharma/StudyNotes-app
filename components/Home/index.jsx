@@ -6,7 +6,7 @@ import BlogsCarousel from "./BlogsCarousel";
 import NotesCarousel from "./NotesCarousel";
 import { Button } from "@mui/material";
 import Link from "next/link";
-function HomePage({ data }) {
+function HomePage({ data, notes }) {
   return (
     <>
       <BannerSection>
@@ -32,7 +32,7 @@ function HomePage({ data }) {
           </Button>
         </TopSection>
         <NotesCardsSection>
-          <NotesCarousel />
+          <NotesCarousel data={notes} />
         </NotesCardsSection>
       </Wrapper>
     </>

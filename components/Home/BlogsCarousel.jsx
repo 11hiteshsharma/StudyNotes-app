@@ -9,7 +9,7 @@ const BlogsCarousel = ({ data }) => {
   console.log(data, "hello");
   const settings = {
     dots: false,
-    autoplay: true,
+    autoplay: false,
     infinite: true,
     speed: 1000,
     autoplaySpeed: 2000,

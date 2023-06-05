@@ -1,156 +1,222 @@
 import React from "react";
-import { styled } from "@mui/system";
 import Typography from "@mui/material/Typography";
+import Image from "next/image";
+import Link from "next/link";
 import Modal from "@mui/material/Modal";
 import { MdClose } from "react-icons/md";
 import Box from "@mui/material/Box";
-
-const NotesCard = () => {
+import { Grid, GridItem } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import { Button, CardActionArea, CardActions } from "@mui/material";
+import styled from "@emotion/styled";
+import Fade from "@mui/material/Fade";
+import { GiNotebook } from "react-icons/gi";
+import { FaUserGraduate } from "react-icons/fa";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+const NotesCard = ({ data }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   return (
-    <CardWrapper>
-      <ContentWrapper>
-        <Heading>COMPUTER SCIENCE 1st YEAR</Heading>
-        <Para>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-          laboriosam at voluptas minus culpa deserunt delectus sapiente
-          inventore pariatur Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Tempora, quod?
-        </Para>
-        <Button onClick={handleOpen}>Read more</Button>
-
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-            <iframe
-              title="PDF Viewer"
-              src="https://www.africau.edu/images/default/sample.pdf"
-              width="100%"
-              height="92%"
-            ></iframe>
-
-            <ModalButton
-              onClick={handleClose}
-              sx={{ position: "absolute", top: 8, right: 8 }}
+    <>
+      <Card
+        sx={{
+          maxHeight: "360px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          borderRadius: "1rem",
+          overflow: "hidden",
+          boxShadow: "0 0.1rem 1rem rgba(0, 0, 0, 0.1)",
+          background: "#ece9e6",
+          background: "linear-gradient(to right, #ffffff, #ece9e6)",
+        }}
+      >
+        <CardActionArea sx={{ minHeight: "300" }} onClick={handleOpen}>
+          <ImageWrapper>
+            <Image
+              src={data?.image}
+              alt="card__image"
+              layout="fill"
+              objectFit="cover"
+            />
+          </ImageWrapper>
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              sx={{ color: "black", fontSize: "20px", fontWeight: "bold" }}
             >
-              <MdClose />
-            </ModalButton>
+              {data?.branch}
+            </Typography>
+            <Typography
+              variant="h6"
+              gutterBottom
+              sx={{
+                color: "black",
+                fontSize: "16px",
+                fontWeight: "bold",
+                display: "flex",
+                alignItems: "center",
+                gap: "5px",
+              }}
+            >
+              <FaUserGraduate fontSize={16} color="#1390d8" />
+              {data?.year}
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              gutterBottom
+              sx={{
+                color: "black",
+                fontSize: "14px",
+                fontWeight: "bold",
+                display: "flex",
+                alignItems: "center",
+                gap: "5px",
+              }}
+            >
+              <GiNotebook fontSize={16} color="#1390d8" />
+              {data?.subject}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions sx={{ justifyContent: "center", marginBottom: "1rem" }}>
+          <Button
+            onClick={handleOpen}
+            sx={{
+              backgroundColor: "#009df9;",
+              color: "white",
+              borderRadius: "0.5rem",
+              padding: "0.4rem 0.8rem",
+              cursor: "pointer",
+              transition: "background-color 0.3s",
+              "&:hover": {
+                backgroundColor: "#5bb8ee;",
+              },
+            }}
+          >
+            View More
+          </Button>
+        </CardActions>
+      </Card>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+        closeAfterTransition
+      >
+        <Fade in={open}>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "40%",
+              height: "70%",
+              bgcolor: "background.paper",
+              boxShadow: 24,
+              p: 4,
+            }}
+          >
+            <CloseButton onClick={handleClose}>
+              <AiOutlineCloseCircle fontSize={26} color="grey" />
+            </CloseButton>
+            <ModalHeading>
+              <Typography
+                variant="h6"
+                id="modal-title"
+                gutterBottom
+                justifyContent="center"
+              >
+                {data?.subject}
+              </Typography>
+            </ModalHeading>
+            <ModalContent>
+              <Typography
+                variant="body1"
+                id="modal-description"
+                gutterBottom
+                fontSize={22}
+                fontWeight={600}
+              >
+                You Will Be Able To Learn
+              </Typography>
+              <ul>
+                {data?.contents.map((content, index) => (
+                  <CourseContent key={index}>{content}</CourseContent>
+                ))}
+              </ul>
+            </ModalContent>
+            <PDFDownloadButton>
+              <Button
+                onClick={handleOpen}
+                sx={{
+                  backgroundColor: "#009df9;",
+                  color: "white",
+                  borderRadius: "0.5rem",
+                  padding: "0.4rem 0.8rem",
+                  cursor: "pointer",
+                  transition: "background-color 0.3s",
+                  "&:hover": {
+                    backgroundColor: "#5bb8ee;",
+                  },
+                }}
+              >
+                <Link href="/" target="_blank">
+                  View PDF
+                </Link>
+              </Button>
+            </PDFDownloadButton>
           </Box>
-        </Modal>
-      </ContentWrapper>
-    </CardWrapper>
+        </Fade>
+      </Modal>
+    </>
   );
 };
 
 export default NotesCard;
 
-const CardWrapper = styled("div")`
+const ImageWrapper = styled.div`
   position: relative;
+  width: 100%;
+  height: 175px;
+`;
+
+const CloseButton = styled.div`
+  position: absolute;
+  cursor: pointer;
+  top: 5%;
+  right: 3%;
+`;
+
+const ModalHeading = styled.div`
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 320px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  padding: 32px;
-  overflow: hidden;
-  border-radius: 10px;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-bottom: 20px;
+`;
 
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(-10deg, #ffffff 0%, #003053 100%);
-    z-index: -1;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  &:hover:before {
-    height: 100%;
-  }
-
-  &:hover {
-    box-shadow: none;
+const ModalContent = styled.div`
+  padding: 10px 50px;
+  & ul {
+    text-decoration: none;
   }
 `;
 
-const ContentWrapper = styled("div")`
+const CourseContent = styled.li`
+  margin-bottom: 10px;
+  font-size: 18px;
+`;
+
+const PDFDownloadButton = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  color: #fffcfc;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-`;
-
-const Heading = styled("p")`
-  font-weight: 700;
-  font-size: 1.4rem;
-`;
-
-const Para = styled("p")`
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
-  /* fallback for Firefox */
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-`;
-
-const Button = styled("button")`
-  color: #e8e8e8;
-  text-decoration: none;
-  padding: 10px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%);
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-
-  &:hover {
-    outline: 2px solid #e8e8e8;
-    background: transparent;
-    color: #e8e8e8;
-  }
-
-  &:active {
-    box-shadow: none;
-  }
-`;
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "60%",
-  height: "90%",
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  color: "black",
-  p: 4,
-};
-
-const ModalButton = styled("button")`
-  cursor: pointer;
+  justify-content: center;
 `;
