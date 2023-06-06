@@ -6,9 +6,10 @@ import Card from "../Cards/Card";
 import styled from "@emotion/styled";
 
 const BlogsCarousel = ({ data }) => {
+  console.log(data, "hello");
   const settings = {
-    dots: true,
-    autoplay: true,
+    dots: false,
+    autoplay: false,
     infinite: true,
     speed: 1000,
     autoplaySpeed: 2000,
@@ -45,7 +46,7 @@ const BlogsCarousel = ({ data }) => {
   return (
     <SliderContainer>
       <Slider {...settings}>
-        {data.map((data) => (
+        {data?.map((data) => (
           <CardContainer key={data.id}>
             <Card data={data} />
           </CardContainer>

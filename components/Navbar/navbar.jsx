@@ -77,7 +77,6 @@ function NavBar() {
 			<Sidebar setIsOpen={setIsOpen} isOpen={isOpen} />
 		</NavigationBar>
 	);
-}
 
 export default NavBar;
 
