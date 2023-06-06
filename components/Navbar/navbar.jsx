@@ -31,7 +31,7 @@ const NavLink = [
 
 function NavBar() {
 	const [shadow, setShadow] = useState(false);
-	console.log(shadow);
+	const [isOpen, setIsOpen] = useState(false);
 
 	useEffect(() => {
 		const handleShadow = () => {
@@ -45,7 +45,10 @@ function NavBar() {
 		};
 	}, []);
 
-	
+	const toggleSidebar = () => {
+		setIsOpen(!isOpen);
+	};
+
 	return (
 		<NavigationBar shadow={shadow}>
 			<NavbarContainer>
@@ -66,12 +69,12 @@ function NavBar() {
 					))}
 				</Navigation>
 
-				<NavMenu>
+				<NavMenu onClick={toggleSidebar}>
 					<HiMenuAlt3 size={30} />
 				</NavMenu>
 			</NavbarContainer>
 
-			<Sidebar/>
+			<Sidebar setIsOpen={setIsOpen} isOpen={isOpen} />
 		</NavigationBar>
 	);
 }
@@ -81,7 +84,7 @@ export default NavBar;
 const NavigationBar = styled.nav`
 	position: sticky;
 	top: 0;
-	z-index: 100;
+	z-index: 10000;
 	transition: box-shadow 0.3s ease-in-out;
 
 	background-color: ${({ shadow }) => (shadow ? "#fff" : "transparent")};

@@ -139,6 +139,6 @@ const SearchBar = styled.div`
 
 	@media (max-width: 768px) {
 		top: -9%;
-		width: 60vw;
+		width: 87vw;
 	}
 `;
