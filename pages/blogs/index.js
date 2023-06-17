@@ -5,7 +5,7 @@ import SearchBar from "@/components/Blogs/SearchBar";
 import styled from "@emotion/styled";
 import Wrapper from "@/styles/Wrapper";
 import CardsGrid from "@/components/Blogs/CardsGrid";
-import { BlogData } from "@/database/blogcard";
+import { BlogData } from "@/database/Blogcard";
 const Blogs = () => {
   const data = BlogData;
   return (
@@ -23,8 +23,8 @@ const Blogs = () => {
           <SearchBar />
         </SearchBarContainer>
         <Heading>Popular Blogs</Heading>
-        <CardsGrid data={data} />
       </Wrapper>
+      <CardsGrid data={data} />
     </div>
   );
 };

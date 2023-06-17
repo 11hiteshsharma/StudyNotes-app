@@ -60,6 +60,14 @@ const SearchBarContainer = styled.div`
   & > .CursorPointer {
     cursor: pointer;
   }
+
+  @media (width<525px) {
+    width: 100%;
+    flex-direction: column;
+    & > input {
+      padding-left: 0px;
+    }
+  }
 `;
 
 const SearchButton = styled.button`
@@ -79,6 +87,10 @@ const SearchButton = styled.button`
   /* Screen Color */
 
   color: #ffffff;
+
+  @media (width<525px) {
+    padding-inline: 20px;
+  }
 `;
 
 const FilterContainer = styled.div`

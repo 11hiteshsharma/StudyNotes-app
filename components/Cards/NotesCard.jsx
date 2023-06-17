@@ -24,7 +24,8 @@ const NotesCard = ({ data }) => {
     <>
       <Card
         sx={{
-          maxHeight: "360px",
+          height: "100%",
+          minHeight: "360px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -35,7 +36,7 @@ const NotesCard = ({ data }) => {
           background: "linear-gradient(to right, #ffffff, #ece9e6)",
         }}
       >
-        <CardActionArea sx={{ minHeight: "300" }} onClick={handleOpen}>
+        <CardActionArea sx={{ minHeight: "360" }} onClick={handleOpen}>
           <ImageWrapper>
             <Image
               src={data?.image}
@@ -119,7 +120,7 @@ const NotesCard = ({ data }) => {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: "40%",
+              width: "80vw",
               height: "70%",
               bgcolor: "background.paper",
               boxShadow: 24,
