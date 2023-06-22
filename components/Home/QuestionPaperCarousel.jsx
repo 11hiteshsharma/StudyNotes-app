@@ -1,11 +1,12 @@
 import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Card from "../Cards/Card";
+import QuestionPaper from "../Cards/QuestionPaper";
 import styled from "@emotion/styled";
+import Slider from "react-slick";
+import "react-multi-carousel/lib/styles.css";
 
-const BlogsCarousel = ({ data }) => {
+const QuestionPaperCarousel = ({ data }) => {
+  console.log(data, "data");
+
   const settings = {
     dots: false,
     autoplay: false,
@@ -47,7 +48,7 @@ const BlogsCarousel = ({ data }) => {
       <Slider {...settings}>
         {data?.map((data) => (
           <CardContainer key={data.id}>
-            <Card data={data} />
+            <QuestionPaper paper={data} />
           </CardContainer>
         ))}
       </Slider>
@@ -55,7 +56,7 @@ const BlogsCarousel = ({ data }) => {
   );
 };
 
-export default BlogsCarousel;
+export default QuestionPaperCarousel;
 
 const SliderContainer = styled.div``;
 

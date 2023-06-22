@@ -1,0 +1,92 @@
+export const previous_year_question_paper = [
+  {
+    id: 1,
+    Branch: "Computer Science",
+    Subject: "Data Structures",
+    Year: "2022",
+  },
+  {
+    id: 2,
+    Branch: "Mechanical Engineering",
+    Subject: "Thermodynamics",
+    Year: "2021",
+  },
+  {
+    id: 3,
+    Branch: "Electrical Engineering",
+    Subject: "Control Systems",
+    Year: "2020",
+  },
+  {
+    id: 4,
+    Branch: "Civil Engineering",
+    Subject: "Structural Analysis",
+    Year: "2019",
+  },
+  {
+    id: 5,
+    Branch: "Electronics and Communication",
+    Subject: "Digital Signal Processing",
+    Year: "2018",
+  },
+  {
+    id: 6,
+    Branch: "Chemical Engineering",
+    Subject: "Fluid Mechanics",
+    Year: "2017",
+  },
+  {
+    id: 7,
+    Branch: "Aerospace Engineering",
+    Subject: "Aerodynamics",
+    Year: "2016",
+  },
+  {
+    id: 8,
+    Branch: "Biotechnology",
+    Subject: "Genetic Engineering",
+    Year: "2015",
+  },
+  {
+    id: 9,
+    Branch: "Information Technology",
+    Subject: "Database Management Systems",
+    Year: "2014",
+  },
+  {
+    id: 10,
+    Branch: "Electrical and Electronics",
+    Subject: "Power Systems",
+    Year: "2013",
+  },
+  {
+    id: 11,
+    Branch: "Civil Engineering",
+    Subject: "Geotechnical Engineering",
+    Year: "2012",
+  },
+  {
+    id: 12,
+    Branch: "Mechanical Engineering",
+    Subject: "Machine Design",
+    Year: "2011",
+  },
+  {
+    id: 13,
+    Branch: "Computer Science",
+    Subject: "Operating Systems",
+    Year: "2010",
+  },
+  {
+    id: 14,
+    Branch: "Electronics and Communication",
+    Subject: "Analog Electronics",
+    Year: "2009",
+  },
+  {
+    id: 15,
+    Branch: "Chemical Engineering",
+    Subject: "Process Dynamics and Control",
+    Year: "2008",
+  },
+];
