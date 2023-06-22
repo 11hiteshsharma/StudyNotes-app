@@ -6,7 +6,8 @@ import BlogsCarousel from "./BlogsCarousel";
 import NotesCarousel from "./NotesCarousel";
 import { Button } from "@mui/material";
 import Link from "next/link";
-function HomePage({ data, notes }) {
+import QuestionPaperCarousel from "./QuestionPaperCarousel";
+function HomePage({ data, notes, quspaper }) {
   return (
     <>
       <BannerSection>
@@ -34,6 +35,16 @@ function HomePage({ data, notes }) {
         <NotesCardsSection>
           <NotesCarousel data={notes} />
         </NotesCardsSection>
+
+        <TopSection>
+          <QuestionPaperSection>Previous Question Papers</QuestionPaperSection>
+          <Button>
+            <Link href="/questionpapers"> View All</Link>
+          </Button>
+        </TopSection>
+        <QuestionPaperCards>
+          <QuestionPaperCarousel data={quspaper} />
+        </QuestionPaperCards>
       </Wrapper>
     </>
   );
@@ -69,3 +80,11 @@ const TopSection = styled.div`
   justify-content: space-between;
   align-items: flex-start;
 `;
+
+const QuestionPaperSection = styled.h2`
+  font-size: 2rem;
+  letter-spacing: 0.07em;
+  margin-bottom: 40px;
+`;
+
+const QuestionPaperCards = styled.div``;
