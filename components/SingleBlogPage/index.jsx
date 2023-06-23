@@ -4,12 +4,12 @@ import Wrapper from "@/styles/Wrapper";
 import styled from "@emotion/styled";
 import RelatedBlog from "./RelatedBlog";
 
-const SingleBlogPage = () => {
+const SingleBlogPage = ({ data }) => {
   return (
     <>
       <BlogContentContainer>
         <BlogWrapper>
-          <BlogContent />
+          <BlogContent BlogData={data} />
         </BlogWrapper>
       </BlogContentContainer>
       <Wrapper>
