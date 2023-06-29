@@ -1,7 +1,7 @@
 export const BlogData = [
   {
     id: 1,
-    image: "https://source.unsplash.com/600x400/?nature",
+    image: "https://source.unsplash.com/1920x1080/?nature",
     title: "Discovering the Serenity of Nature",
     slug: "discovering-the-serenity-of-nature",
     description:
@@ -11,7 +11,7 @@ export const BlogData = [
   },
   {
     id: 2,
-    image: "https://source.unsplash.com/600x400/?technology",
+    image: "https://source.unsplash.com/1920x1080/?technology",
     title: "Embracing the Future: Exploring Breakthrough Technologies",
     slug: "embracing-the-future-exploring-breakthrough-technologies",
     description:
@@ -21,7 +21,7 @@ export const BlogData = [
   },
   {
     id: 3,
-    image: "https://source.unsplash.com/600x400/?food",
+    image: "https://source.unsplash.com/1920x1080/?food",
     title: "Gastronomic Delights: Exploring Culinary Wonders",
     slug: "gastronomic-delights-exploring-culinary-wonders",
     description:
@@ -31,7 +31,7 @@ export const BlogData = [
   },
   {
     id: 4,
-    image: "https://source.unsplash.com/600x400/?architecture",
+    image: "https://source.unsplash.com/1920x1080/?architecture",
     title: "The Architectural Marvels: Unveiling the Beauty of Structures",
     slug: "the-architectural-marvels-unveiling-the-beauty-of-structures",
     description:
@@ -41,7 +41,7 @@ export const BlogData = [
   },
   {
     id: 5,
-    image: "https://source.unsplash.com/600x400/?music",
+    image: "https://source.unsplash.com/1920x1080/?music",
     title: "The Power of Melody: Exploring the World of Music",
     slug: "the-power-of-melody-exploring-the-world-of-music",
     description:
@@ -51,7 +51,7 @@ export const BlogData = [
   },
   {
     id: 6,
-    image: "https://source.unsplash.com/600x400/?sports",
+    image: "https://source.unsplash.com/1920x1080/?sports",
     title: "The Thrill of Victory: Unraveling the World of Sports",
     slug: "the-thrill-of-victory-unraveling-the-world-of-sports",
     description:
@@ -61,7 +61,7 @@ export const BlogData = [
   },
   {
     id: 7,
-    image: "https://source.unsplash.com/600x400/?science",
+    image: "https://source.unsplash.com/1920x1080/?science",
     title: "Unveiling the Wonders of Science: Journey into the Unknown",
     slug: "unveiling-the-wonders-of-science-journey-into-the-unknown",
     description:
@@ -71,7 +71,7 @@ export const BlogData = [
   },
   {
     id: 8,
-    image: "https://source.unsplash.com/600x400/?animals",
+    image: "https://source.unsplash.com/1920x1080/?animals",
     title: "Wild Encounters: Exploring the Fascinating Animal Kingdom",
     slug: "wild-encounters-exploring-the-fascinating-animal-kingdom",
     description:
@@ -81,7 +81,7 @@ export const BlogData = [
   },
   {
     id: 9,
-    image: "https://source.unsplash.com/600x400/?art",
+    image: "https://source.unsplash.com/1920x1080/?art",
     title: "The Expressions of Art: A Journey through Creativity",
     slug: "the-expressions-of-art-a-journey-through-creativity",
     description:
@@ -91,7 +91,7 @@ export const BlogData = [
   },
   {
     id: 10,
-    image: "https://source.unsplash.com/600x400/?history",
+    image: "https://source.unsplash.com/1920x1080/?history",
     title: "Unraveling the Past: Exploring the Tapestry of History",
     slug: "unraveling-the-past-exploring-the-tapestry-of-history",
     description:
@@ -101,7 +101,7 @@ export const BlogData = [
   },
   {
     id: 11,
-    image: "https://source.unsplash.com/600x400/?health",
+    image: "https://source.unsplash.com/1920x1080/?health",
     title: "Nurturing Wellness: A Holistic Approach to Health",
     slug: "nurturing-wellness-a-holistic-approach-to-health",
     description:
@@ -111,7 +111,7 @@ export const BlogData = [
   },
   {
     id: 12,
-    image: "https://source.unsplash.com/600x400/?technology",
+    image: "https://source.unsplash.com/1920x1080/?technology",
     title: "The Rise of Artificial Intelligence: Shaping the Future",
     slug: "the-rise-of-artificial-intelligence-shaping-the-future",
     description:
@@ -121,7 +121,7 @@ export const BlogData = [
   },
   {
     id: 13,
-    image: "https://source.unsplash.com/600x400/?travel",
+    image: "https://source.unsplash.com/1920x1080/?travel",
     title: "Wanderlust Chronicles: Tales from Around the World",
     slug: "wanderlust-chronicles-tales-from-around-the-world",
     description:
@@ -131,7 +131,7 @@ export const BlogData = [
   },
   {
     id: 14,
-    image: "https://source.unsplash.com/600x400/?science",
+    image: "https://source.unsplash.com/1920x1080/?science",
     title: "The Frontier of Space Exploration: Journey to the Stars",
     slug: "the-frontier-of-space-exploration-journey-to-the-stars",
     description:
@@ -141,7 +141,7 @@ export const BlogData = [
   },
   {
     id: 15,
-    image: "https://source.unsplash.com/600x400/?food",
+    image: "https://source.unsplash.com/1920x1080/?food",
     title: "Culinary Adventures: Tasting the World's Flavors",
     slug: "culinary-adventures-tasting-the-worlds-flavors",
     description:
