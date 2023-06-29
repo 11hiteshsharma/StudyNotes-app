@@ -8,7 +8,7 @@ const BlogContent = ({ BlogData }) => {
     <BlogContainer>
       <TitleContainer>{BlogData?.title}</TitleContainer>
 
-      <ShortDescription>{BlogData.shortDescription}</ShortDescription>
+      <ShortDescription>{BlogData?.shortDescription}</ShortDescription>
 
       <ImageContainer>
         <CustomImage
