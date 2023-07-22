@@ -4,7 +4,10 @@ import Link from "next/link";
 import { HiMenuAlt3 } from "react-icons/hi";
 import Image from "next/image";
 
+import { useDispatch } from "react-redux";
+
 import Sidebar from "./sidebar";
+import { OpenModal } from "@/redux/slices/quizModal";
 
 const NavLink = [
 	{
@@ -23,13 +26,10 @@ const NavLink = [
 		title: "Notes",
 		href: "/notes",
 	},
-	{
-		title: "Quiz's",
-		href: "/quiz",
-	},
 ];
 
 function NavBar() {
+	const dispatch = useDispatch();
 	const [shadow, setShadow] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -63,10 +63,17 @@ function NavBar() {
 
 				<Navigation>
 					{NavLink.map((link) => (
-						<Link href={link.href} key={link.title}>
-							{link.title}
+						<Link href={link?.href} key={link.title}>
+							{link?.title}
 						</Link>
 					))}
+
+					<a
+						onClick={() => {
+							dispatch(OpenModal(true));
+						}}>
+						Quiz&apos;s
+					</a>
 				</Navigation>
 
 				<NavMenu onClick={toggleSidebar}>
