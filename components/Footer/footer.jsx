@@ -24,17 +24,29 @@ const Footer = () => {
         >
           {/* Social media icons */}
           <Grid item>
-            <SocialLink href="#" style={{ backgroundColor: "#3b5998" }}>
+            <SocialLink
+              href="https://www.instagram.com/notio.app/"
+              target="_blank"
+              style={{ backgroundColor: "#3b5998" }}
+            >
               <FaFacebookF />
             </SocialLink>
           </Grid>
           <Grid item>
-            <SocialLink href="#" style={{ backgroundColor: "#ac2bac" }}>
+            <SocialLink
+              href="https://www.instagram.com/notio.app/"
+              target="_blank"
+              style={{ backgroundColor: "#ac2bac" }}
+            >
               <FaInstagram />
             </SocialLink>
           </Grid>
           <Grid item>
-            <SocialLink href="#" style={{ backgroundColor: "#0082ca" }}>
+            <SocialLink
+              href="https://www.instagram.com/notio.app/"
+              target="_blank"
+              style={{ backgroundColor: "#0082ca" }}
+            >
               <FaLinkedinIn />
             </SocialLink>
           </Grid>
@@ -43,7 +55,7 @@ const Footer = () => {
       {/* Copyright */}
       <FooterTextContainer>
         <Container maxWidth="lg">
-          <FooterText>© {currentYear} MDBootstrap.com</FooterText>
+          <FooterText>© {currentYear} NOTIO</FooterText>
         </Container>
       </FooterTextContainer>
     </FooterContainer>

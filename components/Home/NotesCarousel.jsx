@@ -8,7 +8,7 @@ import styled from "@emotion/styled";
 const NotesCarousel = ({ data }) => {
   const settings = {
     dots: false,
-    autoplay: false,
+    autoplay: true,
     infinite: true,
     speed: 1000,
     autoplaySpeed: 2000,
